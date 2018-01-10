@@ -1,7 +1,8 @@
 name: WSO2 API Manager & Analytic server
 description: |
   WSO2 API Manager and Analytic server using the "pattern-2" config from wso2 repo: https://github.com/wso2/docker-apim/tree/master/docker-compose/pattern-2
-version: v0.1
+version: v2.1.1
 category: API
-maintainer: Ernest Lau 
+maintainer: "Ernest Lau <ernest.lau@transact24.com>" 
 projectURL: https://wso2.com/api-management/
+license:

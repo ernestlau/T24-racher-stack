@@ -1,4 +1,9 @@
 version: '2'
+catalog:
+  name: WSO2-APIM
+  version: 2.1.1
+  description: |
+    WSO2 API Manager and Analytic
 services:
   api-manager:
     scale: 1
