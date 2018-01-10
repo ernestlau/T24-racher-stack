@@ -1,0 +1,11 @@
+version: '2'
+services:
+  api-manager:
+    scale: 1
+    start_on_create: true
+  apim-rdbms:
+    scale: 1
+    start_on_create: true
+  am-analytics:
+    scale: 1
+    start_on_create: true

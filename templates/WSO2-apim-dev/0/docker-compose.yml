@@ -1,0 +1,27 @@
+version: '2'
+services:
+  api-manager:
+    image: docker.wso2.com/apim-pattern2-api-manager:2.1.0
+    environment:
+      SLEEP: '1'
+    links:
+    - apim-rdbms:apim_rdbms
+    - am-analytics:am-analytics
+    ports:
+    - 172.24.72.192:443:9443/tcp
+    - 172.24.72.192:80:9763/tcp
+    labels:
+      io.rancher.container.pull_image: always
+  apim-rdbms:
+    image: docker.wso2.com/apim-pattern2-apim_rdbms:2.1.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  am-analytics:
+    image: docker.wso2.com/apim-pattern2-am-analytics:2.1.0
+    environment:
+      SLEEP: '100'
+    links:
+    - apim-rdbms:apim_rdbms
+    ports:
+    - 9444:9444/tcp
+    - 9764:9764/tcp
