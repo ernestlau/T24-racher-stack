@@ -3,13 +3,16 @@ services:
   api-manager:
     image: docker.wso2.com/apim-pattern2-api-manager:2.1.0
     environment:
-      SLEEP: '1'
+      SLEEP: '10'
     links:
     - apim-rdbms:apim_rdbms
     - am-analytics:am-analytics
     ports:
-    - 172.24.72.192:443:9443/tcp
-    - 172.24.72.192:80:9763/tcp
+    - 443:9443
+    - 80:9763
+    depends_on:
+    - apim-rdbms
+    - am-analytics 
     labels:
       io.rancher.container.pull_image: always
   apim-rdbms:
@@ -19,9 +22,9 @@ services:
   am-analytics:
     image: docker.wso2.com/apim-pattern2-am-analytics:2.1.0
     environment:
-      SLEEP: '100'
+      SLEEP: '1'
     links:
     - apim-rdbms:apim_rdbms
     ports:
-    - 9444:9444/tcp
-    - 9764:9764/tcp
+    - 9444:9444
+    - 9764:9764
